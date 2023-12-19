@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyhxbawcy3pw1"]
+
+[ext_resource type="Texture2D" uid="uid://dwmipbotsk7a4" path="res://UI/GUI/assets/label_HP_bg.png" id="1_1t72x"]
+[ext_resource type="Texture2D" uid="uid://b57twewsnrn3l" path="res://UI/GUI/assets/lifebar_bg.png" id="2_3dimw"]
+[ext_resource type="FontFile" uid="uid://cobot7hr3ahp5" path="res://UI/GUI/assets/Pixel.ttf" id="2_rk86l"]
+[ext_resource type="Texture2D" uid="uid://bmnst8g78rtau" path="res://UI/GUI/assets/lifebar_fill.png" id="3_dbo11"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxc8g"]
+line_spacing = 5.0
+font = ExtResource("2_rk86l")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_g1y0o"]
+font = ExtResource("2_rk86l")
+font_size = 20
+
+[node name="GUI" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 475.0
+offset_bottom = 53.0
+
+[node name="HPCountBackground" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+texture = ExtResource("1_1t72x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HPCountBackground"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 53.0
+alignment = 1
+
+[node name="HP" type="Label" parent="HBoxContainer/HPCountBackground/HBoxContainer"]
+layout_mode = 2
+text = "HP"
+label_settings = SubResource("LabelSettings_oxc8g")
+
+[node name="Number" type="Label" parent="HBoxContainer/HPCountBackground/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_g1y0o")
+
+[node name="HPBarBackground" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_3dimw")
+
+[node name="HPBar" type="TextureProgressBar" parent="HBoxContainer/HPBarBackground"]
+layout_mode = 0
+offset_right = 396.0
+offset_bottom = 53.0
+value = 100.0
+texture_progress = ExtResource("3_dbo11")
+metadata/_edit_lock_ = true

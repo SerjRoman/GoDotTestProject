@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://7q5d526phtfn"]
+
+[ext_resource type="Texture2D" uid="uid://bid487rk0xors" path="res://End/assets/GameOver.png" id="1_rrau8"]
+[ext_resource type="Script" path="res://End/Button.gd" id="2_xk6ed"]
+
+[node name="GameOverBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_rrau8")
+
+[node name="Button" type="Button" parent="ParallaxLayer"]
+offset_left = 512.0
+offset_top = 454.0
+offset_right = 642.0
+offset_bottom = 536.0
+text = "New Game"
+script = ExtResource("2_xk6ed")
+
+[connection signal="pressed" from="ParallaxLayer/Button" to="ParallaxLayer/Button" method="_on_pressed"]
