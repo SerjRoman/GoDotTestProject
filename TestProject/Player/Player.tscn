@@ -21,8 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://wnf73y6r43gi" path="res://Player/sprites/Player-shoot/player-shoot2.png" id="19_tycli"]
 [ext_resource type="Texture2D" uid="uid://cw63s8ldrspur" path="res://Player/sprites/Player-shoot/player-shoot3.png" id="20_jevqk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdl0i"]
-size = Vector2(21.5, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cl53i"]
+radius = 11.75
+height = 33.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xioea"]
 animations = [{
@@ -291,9 +292,10 @@ script = ExtResource("1_ltkfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 3.5)
-shape = SubResource("RectangleShape2D_qdl0i")
+shape = SubResource("CapsuleShape2D_cl53i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -1)
 sprite_frames = SubResource("SpriteFrames_xioea")
 animation = &"Run"
 frame = 1

@@ -58,6 +58,18 @@ func _physics_process(delta):
 			await anim.animation_finished
 			animation_active = false
 			break
+		# Проверяем группу того с чем коснулись
+		if collision_body.is_in_group("Blocks"):
+			# Получаем Координаты объекта на котором находится наш персонаж
+			# Берется объект который буквально находится В персонаже
+			var cell_position: Vector2i = collision_body.local_to_map(position)
+			# Получаем сам элемент 
+			var cell: TileData = collision_body.get_cell_tile_data(0, cell_position)
+			# Если он есть
+			if cell != null:
+				# Проверяем Имя элемента в custom data layer
+				if cell.get_custom_data('Name') == 'Ladder':
+					print('Ladder')
 				
 
 func shoot():
